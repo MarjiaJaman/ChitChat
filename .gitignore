@@ -1,0 +1,19 @@
+# Node.js
+node_modules/*
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+*.swp
+*.cache
+*.log
+appsettings.Development.json
+*.Development.json
+
+# Entity Framework
+Migrations/
