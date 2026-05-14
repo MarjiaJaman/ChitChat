@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "root",
+    "password": "chitchat123",
+    "database": "chitchat",
+    "host": "localhost",
+    "port": 3307,
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "chitchat123",
+    "database": "chitchat_test",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "chitchat123",
+    "database": "chitchat_production",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}

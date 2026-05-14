@@ -66,6 +66,14 @@ body {
   box-sizing: border-box;
 }
 
+/* Auth pages need full viewport width with no constraints */
+#root:has(.auth-page) {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border-inline: none;
+}
+
 h1,
 h2 {
   font-family: var(--heading);
