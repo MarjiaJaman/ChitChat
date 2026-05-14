@@ -1,0 +1,27 @@
+export default function ChitChatLogo({ size = 40 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="48" height="48" rx="14" fill="url(#grad)" />
+      <path
+        d="M10 16C10 13.8 11.8 12 14 12H34C36.2 12 38 13.8 38 16V28C38 30.2 36.2 32 34 32H26L20 38V32H14C11.8 32 10 30.2 10 28V16Z"
+        fill="white"
+        fillOpacity="0.95"
+      />
+      <circle cx="18" cy="22" r="2.2" fill="url(#grad)" />
+      <circle cx="24" cy="22" r="2.2" fill="url(#grad)" />
+      <circle cx="30" cy="22" r="2.2" fill="url(#grad)" />
+      <defs>
+        <linearGradient id="grad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#ff6b35" />
+          <stop offset="1" stopColor="#f7931e" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
