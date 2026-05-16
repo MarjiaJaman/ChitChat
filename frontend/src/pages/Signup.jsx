@@ -110,24 +110,24 @@ export default function Signup() {
           </div>
           <h1 className="auth-brand-name">ChitChat</h1>
           <p className="auth-brand-tagline">
-            Join ChitChat — instant, real-time messaging that keeps you connected.
+            Create your free account and start connecting with people in seconds.
           </p>
           <div className="auth-brand-features">
             <div className="auth-brand-feature">
-              <div className="auth-brand-feature-icon">⚡</div>
-              <span>Real-time messaging powered by Socket.io.</span>
+              <div className="auth-brand-feature-icon">🟢</div>
+              <span>See who's online and start chatting right away.</span>
             </div>
             <div className="auth-brand-feature">
-              <div className="auth-brand-feature-icon">🔒</div>
-              <span>Private and secure conversations, always.</span>
+              <div className="auth-brand-feature-icon">📞</div>
+              <span>Crystal-clear audio calls, no app download needed.</span>
             </div>
             <div className="auth-brand-feature">
-              <div className="auth-brand-feature-icon">📖</div>
-              <span>Read receipts and typing indicators built in.</span>
+              <div className="auth-brand-feature-icon">🖼️</div>
+              <span>Send photos, PDFs, and links effortlessly.</span>
             </div>
             <div className="auth-brand-feature">
-              <div className="auth-brand-feature-icon">📱</div>
-              <span>Works seamlessly on any device or browser.</span>
+              <div className="auth-brand-feature-icon">🔔</div>
+              <span>Unread message previews so you never miss a thing.</span>
             </div>
           </div>
         </div>

@@ -27,3 +27,22 @@ exports.getUnread = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.deleteMessage = async (req, res, next) => {
+  try {
+    const deleted = await Message.delete(req.params.id);
+    if (!deleted) return res.status(404).json({ message: 'Message not found' });
+    res.json({ message: 'Deleted' });
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.getPreviews = async (req, res, next) => {
+  try {
+    const previews = await Message.lastPerConversation(req.params.userId);
+    res.json(previews);
+  } catch (err) {
+    next(err);
+  }
+};

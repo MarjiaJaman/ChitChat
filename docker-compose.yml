@@ -18,6 +18,25 @@ services:
       timeout: 5s
       retries: 5
 
+  minio:
+    image: minio/minio
+    container_name: chitchat-minio
+    command: server /data --console-address ":9001"
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   backend:
     image: node:20-alpine
     container_name: chitchat-backend
@@ -36,8 +55,16 @@ services:
       DB_NAME: chitchat
       CORS_ORIGINS: "http://localhost:3000,http://localhost:5173"
       PORT: 5000
+      MINIO_ENDPOINT: minio
+      MINIO_PORT: 9000
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin123
+      MINIO_BUCKET: chitchat
+      MINIO_PUBLIC_URL: http://localhost:9000
     depends_on:
       db:
+        condition: service_healthy
+      minio:
         condition: service_healthy
 
   frontend:
@@ -60,4 +87,4 @@ volumes:
   db_data:
   backend_modules:
   frontend_modules:
-
+  minio_data:

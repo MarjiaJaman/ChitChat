@@ -66,8 +66,9 @@ body {
   box-sizing: border-box;
 }
 
-/* Auth pages need full viewport width with no constraints */
-#root:has(.auth-page) {
+/* Auth and home pages need full viewport width with no constraints */
+#root:has(.auth-page),
+#root:has(.home-container) {
   width: 100%;
   max-width: 100%;
   margin: 0;

@@ -46,6 +46,36 @@ function registerChatHandlers(io) {
       if (receiverSocketId) io.to(receiverSocketId).emit('userStoppedTyping', senderId);
     });
 
+    // ── Audio call signaling ──────────────────────────
+    socket.on('callUser', ({ callerId, receiverId, callerName, callerPhoto, offer }) => {
+      const receiverSocketId = userConnections.get(String(receiverId));
+      if (receiverSocketId) {
+        io.to(receiverSocketId).emit('incomingCall', { callerId, callerName, callerPhoto, offer });
+      } else {
+        socket.emit('callUnavailable');
+      }
+    });
+
+    socket.on('callAnswer', ({ callerId, answer }) => {
+      const callerSocketId = userConnections.get(String(callerId));
+      if (callerSocketId) io.to(callerSocketId).emit('callAnswered', { answer });
+    });
+
+    socket.on('callReject', ({ callerId }) => {
+      const callerSocketId = userConnections.get(String(callerId));
+      if (callerSocketId) io.to(callerSocketId).emit('callRejected');
+    });
+
+    socket.on('callEnd', ({ peerId }) => {
+      const peerSocketId = userConnections.get(String(peerId));
+      if (peerSocketId) io.to(peerSocketId).emit('callEnded');
+    });
+
+    socket.on('iceCandidate', ({ peerId, candidate }) => {
+      const peerSocketId = userConnections.get(String(peerId));
+      if (peerSocketId) io.to(peerSocketId).emit('iceCandidate', { candidate });
+    });
+
     socket.on('disconnect', () => {
       if (socket.userId !== undefined) {
         userConnections.delete(socket.userId);

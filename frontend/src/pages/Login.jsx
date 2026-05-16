@@ -72,24 +72,24 @@ export default function Login() {
           </div>
           <h1 className="auth-brand-name">ChitChat</h1>
           <p className="auth-brand-tagline">
-            Connect instantly with the people who matter most.
+            Real-time messaging, audio calls, and media sharing — all in one place.
           </p>
           <div className="auth-brand-features">
             <div className="auth-brand-feature">
-              <div className="auth-brand-feature-icon">⚡</div>
-              <span>Real-time messaging powered by WebSockets.</span>
+              <div className="auth-brand-feature-icon">💬</div>
+              <span>Instant messaging with live typing indicators.</span>
             </div>
             <div className="auth-brand-feature">
-              <div className="auth-brand-feature-icon">🔒</div>
-              <span>Private and secure conversations, always.</span>
+              <div className="auth-brand-feature-icon">📞</div>
+              <span>One-on-one audio calls with WebRTC technology.</span>
             </div>
             <div className="auth-brand-feature">
-              <div className="auth-brand-feature-icon">📖</div>
-              <span>Read receipts and typing indicators built in.</span>
+              <div className="auth-brand-feature-icon">🖼️</div>
+              <span>Share photos, files, and attachments instantly.</span>
             </div>
             <div className="auth-brand-feature">
-              <div className="auth-brand-feature-icon">📱</div>
-              <span>Works seamlessly on any device or browser.</span>
+              <div className="auth-brand-feature-icon">✅</div>
+              <span>Read receipts so you always know who's seen your message.</span>
             </div>
           </div>
         </div>

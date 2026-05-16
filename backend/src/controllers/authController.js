@@ -17,8 +17,9 @@ exports.login = async (req, res, next) => {
 
     res.json({
       id: user.id,
-      fullName: user.full_name,
+      fullName: user.fullName,
       email: user.email,
+      profilePhoto: user.profilePhoto || null,
       createdAt: user.created_at,
     });
   } catch (err) {
