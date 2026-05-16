@@ -4,13 +4,13 @@ const db = require('../config/db');
 const User = {
   findAll: async () => {
     return await db.User.findAll({
-      attributes: ['id', 'full_name', 'gender', 'date_of_birth', 'email', 'created_at', 'updated_at']
+      attributes: ['id', 'full_name', 'gender', 'date_of_birth', 'email', 'profile_photo', 'created_at', 'updated_at']
     });
   },
 
   findById: async (id) => {
     return await db.User.findByPk(id, {
-      attributes: ['id', 'full_name', 'gender', 'date_of_birth', 'email', 'created_at', 'updated_at']
+      attributes: ['id', 'full_name', 'gender', 'date_of_birth', 'email', 'profile_photo', 'created_at', 'updated_at']
     });
   },
 
@@ -32,7 +32,7 @@ const User = {
     return User.findById(user.id);
   },
 
-  update: async (id, { fullName, gender, dateOfBirth, email, password }) => {
+  update: async (id, { fullName, gender, dateOfBirth, email, password, profilePhoto }) => {
     const existing = await User._findByIdWithPassword(id);
     if (!existing) return null;
     const hashed = password ? await bcrypt.hash(password, 10) : existing.password;
@@ -42,7 +42,8 @@ const User = {
         gender: gender !== undefined ? gender : existing.gender,
         dateOfBirth: dateOfBirth !== undefined ? dateOfBirth : existing.dateOfBirth,
         email: email || existing.email,
-        password: hashed
+        password: hashed,
+        profilePhoto: profilePhoto !== undefined ? profilePhoto : existing.profilePhoto
       },
       { where: { id } }
     );
